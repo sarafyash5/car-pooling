@@ -1,0 +1,21 @@
+@import url(bootstrap.min.css);
+@import url(sweetalert2.min.css);
+/* line 1, ../sass/partials/_base.scss */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  background: #E12A99;
+  line-height: 1em;
+  color: white; }
+
+/* line 9, ../sass/partials/_base.scss */
+#wrapper {
+  background: #FFFFFF;
+  margin: 0 auto;
+  max-width: 800px; }
+
+/* line 19, ../sass/partials/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }

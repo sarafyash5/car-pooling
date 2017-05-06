@@ -1,0 +1,7 @@
+.settings/
+.externalToolBuilders/
+.project
+.classpath
+Thumbs.db
+Desktop.ini
+.sass-cache
