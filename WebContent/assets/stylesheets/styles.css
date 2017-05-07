@@ -1,21 +1,67 @@
 @import url(bootstrap.min.css);
 @import url(sweetalert2.min.css);
-/* line 1, ../sass/partials/_base.scss */
+@import url(../font-awesome-4.7.0/css/font-awesome.min.css);
+/* line 9, ../sass/styles.scss */
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
-  background: #E12A99;
+  background: #B2BEB5;
   line-height: 1em;
-  color: white; }
+  color: white;
+  margin-bottom: 60px; }
 
-/* line 9, ../sass/partials/_base.scss */
-#wrapper {
-  background: #FFFFFF;
-  margin: 0 auto;
-  max-width: 800px; }
-
-/* line 19, ../sass/partials/_base.scss */
+/* line 18, ../sass/styles.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+/* line 24, ../sass/styles.scss */
+html {
+  position: relative;
+  min-height: 100%; }
+
+/* line 29, ../sass/styles.scss */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1.5em;
+  line-height: 1.5em;
+  background-color: #000000; }
+
+/* line 38, ../sass/styles.scss */
+.footer div div div {
+  font-size: 2vmin; }
+  /* line 40, ../sass/styles.scss */
+  .footer div div div:nth-child(3), .footer div div div:nth-child(4) {
+    text-align: right; }
+
+/* line 45, ../sass/styles.scss */
+.navbar {
+  position: relative;
+  background-color: transparent;
+  background: transparent;
+  border-color: transparent;
+  width: 100%;
+  line-height: 3.5em; }
+
+/* line 54, ../sass/styles.scss */
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;
+  /* 50% of your logo width */
+  display: block; }
+
+/* line 61, ../sass/styles.scss */
+#arrow-up {
+  font-size: 3em;
+  position: absolute;
+  left: 50%;
+  bottom: 1%;
+  display: none; }
+
+/* line 69, ../sass/styles.scss */
+#header-line {
+  color: white; }
