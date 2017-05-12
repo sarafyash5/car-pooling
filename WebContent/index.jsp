@@ -8,13 +8,13 @@
 <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="assets/stylesheets/sweetalert2.min.css">
 <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/stylesheets/styles.css">
+<link rel="stylesheet" href="assets/stylesheets/main.css">
 
 <div class="container-fluid">
     <div id="header">
       <!-- HEADER -->
     </div>
-    <div id="body" class="container">
+    <div id="main_body" class="container">
       <!-- BODY -->
     </div>
     <div id="footer">
