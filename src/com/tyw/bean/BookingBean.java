@@ -1,8 +1,8 @@
 package com.tyw.bean;
 
-import com.tyw.enums.BookingStatus;
-
 import java.io.Serializable;
+
+import com.tyw.enums.BookingStatus;
 
 
 public class BookingBean implements Serializable {
@@ -19,6 +19,7 @@ public class BookingBean implements Serializable {
 	private double taxRate;
 	private int noOfPassengers;
 	private String pickupPoint;
+	private String dropoffPoint;
 	private BookingStatus status;
 	private String cancellationReason;
 
@@ -116,6 +117,14 @@ public class BookingBean implements Serializable {
 
 	public void setPickupPoint(String pickupPoint) {
 		this.pickupPoint = pickupPoint;
+	}
+
+	public String getDropoffPoint() {
+		return dropoffPoint;
+	}
+
+	public void setDropoffPoint(String dropoffPoint) {
+		this.dropoffPoint = dropoffPoint;
 	}
 
 	public BookingStatus getStatus() {

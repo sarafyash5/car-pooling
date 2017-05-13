@@ -1,8 +1,8 @@
 package com.tyw.bean;
 
-import com.tyw.enums.Qualification;
-
 import java.io.Serializable;
+
+import com.tyw.enums.Qualification;
 
 
 public class EmployeeBean implements Serializable {
@@ -13,11 +13,11 @@ public class EmployeeBean implements Serializable {
 	private String uid;
 	private String passwd;
 
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
-	public void setID(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -37,11 +37,11 @@ public class EmployeeBean implements Serializable {
 		this.location = location;
 	}
 
-	public String getUID() {
+	public String getUid() {
 		return uid;
 	}
 
-	public void setUID(String uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 

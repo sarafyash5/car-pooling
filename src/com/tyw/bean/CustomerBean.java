@@ -6,8 +6,10 @@ import java.io.Serializable;
 public class CustomerBean implements Serializable {
 
 	private String id;
-	private String name;
+	private String fname;
+	private String lname;
 	private int phone;
+	private String email;
 	private double balance;
 	private String licenseNo;
 	private String orderNo;
@@ -16,20 +18,28 @@ public class CustomerBean implements Serializable {
 	private String uid;
 	private String passwd;
 
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
-	public void setID(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFname() {
+		return fname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 
 	public int getPhone() {
@@ -38,6 +48,14 @@ public class CustomerBean implements Serializable {
 
 	public void setPhone(int phone) {
 		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public double getBalance() {
@@ -80,11 +98,11 @@ public class CustomerBean implements Serializable {
 		this.location = location;
 	}
 
-	public String getUID() {
+	public String getUid() {
 		return uid;
 	}
 
-	public void setUID(String uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 
@@ -95,5 +113,6 @@ public class CustomerBean implements Serializable {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+
 
 }

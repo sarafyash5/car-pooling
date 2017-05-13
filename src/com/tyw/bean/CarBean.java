@@ -1,11 +1,10 @@
 package com.tyw.bean;
 
+import java.io.Serializable;
+
 import com.tyw.enums.CarType;
 import com.tyw.enums.OrderType;
 import com.tyw.enums.Availability;
-
-import java.io.Serializable;
-
 
 
 public class CarBean implements Serializable {
@@ -16,6 +15,8 @@ public class CarBean implements Serializable {
 	private OrderType orderType;
 	private Availability availability;
 	private int noOfPassengers;
+	private double maintenanceCost;
+	private double fuelCost;
 
 	public String getCarNumber() {
 		return carNumber;
@@ -63,6 +64,22 @@ public class CarBean implements Serializable {
 
 	public void setNoOfPassengers(int noOfPassengers) {
 		this.noOfPassengers = noOfPassengers;
+	}
+
+	public double getMaintenanceCost() {
+		return maintenanceCost;
+	}
+
+	public void setMaintenanceCost(double maintenanceCost) {
+		this.maintenanceCost = maintenanceCost;
+	}
+
+	public double getFuelCost() {
+		return fuelCost;
+	}
+
+	public void setFuelCost(double fuelCost) {
+		this.fuelCost = fuelCost;
 	}
 
 }

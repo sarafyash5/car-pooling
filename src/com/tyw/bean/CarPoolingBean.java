@@ -7,6 +7,7 @@ public class CarPoolingBean implements Serializable {
 
 	private String poolingId;
 	private String carNumber;
+	private double driverSalary;
 	private double fare;
 	private String origin;
 	private String destination;
@@ -26,6 +27,14 @@ public class CarPoolingBean implements Serializable {
 
 	public void setCarNumber(String carNumber) {
 		this.carNumber = carNumber;
+	}
+
+	public double getDriverSalary() {
+		return driverSalary;
+	}
+
+	public void setDriverSalary(double driverSalary) {
+		this.driverSalary = driverSalary;
 	}
 
 	public double getFare() {

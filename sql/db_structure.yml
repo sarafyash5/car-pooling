@@ -1,0 +1,72 @@
+tables:
+  locations:
+    location [PK]
+  customer:
+    - customer_id [PK]
+    - fname
+    - lname
+    - phone
+    - email
+    - balance
+    - license_no
+    - postal_address
+    - location
+    - login_id
+    - password
+  employee:
+    - employee_id [PK]
+    - qualification [BM,TSE,FM,SM]
+    - location
+    - login_id
+    - password
+  booking:
+    - order_no [PK]
+    - customer_id [FK]
+    - car_number [FK]
+    - rental_id [FK]
+    - pooling_id [FK]
+    - booking_date
+    - end_date
+    - fare
+    - tax
+    - tax_rate
+    - no_of_passengers
+    - pickup_point
+    - dropoff_point
+    - status [CAN,CNF,PEN,PENCAN,COMP,PENCOMP]
+    - cancellation_reason
+  car:
+    - car_number [PK]
+    - car_name
+    - car_type [HATCHBACK, SEDAN, WAGON, SUV]
+    - order_type [POOL, RENT]
+    - availability [AVAILABLE,BOOKED,EXPIRED]
+    - no_of_passengers
+    - maintenance_cost
+    - fuel_cost
+  carrental:
+    - rental_id [PK]
+    - car_number [FK]
+    - rate_per_km
+    - km_travelled
+    - basic_rent
+    - location
+  carpooling:
+    - pooling_id [PK]
+    - car_number [FK]
+    - driver_salary
+    - fare
+    - origin
+    - destination
+    - departure [DATETIME]
+  invoice:
+    - invoice_no [PK]
+    - order_no [FK]
+    - customer_name
+    - car_name
+    - car_number
+    - order_type [POOL, RENT]
+    - fare
+    - tax
+    - tax_rate
+    - booking_date
