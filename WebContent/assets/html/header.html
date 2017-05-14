@@ -1,4 +1,5 @@
-<nav id="header_nav" class="navbar navbar-toggleable-sm navbar-light bg-faded">
+<nav id="header_nav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-faded
+">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -6,13 +7,16 @@
     <a id="brand_logo" class="navbar-brand" href="#">LOGO</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="nav navbar-nav">
-            <a id="contact_us" class="nav-item nav-link" href="#">Contact us</a>
-            <a id="about_us" class="nav-item nav-link" href="#">About us</a>
+            <div class="btn-group" role="group">
+                <button id="contact_us" class="btn btn-outline-primary" type="button">Contact us</button>
+                <button id="about_us" class="btn btn-outline-primary" type="button">About us</button>
+            </div>
         </div>
         <div class="nav navbar-nav ml-auto">
-            <a id="register" class="nav-item nav-link" href="#">Register</a>
-            <a id="login" class="nav-item nav-link" href="#">Login</a>
+            <div class="btn-group" role="group">
+                <button id="register" class="btn btn-outline-primary" type="button">Register</button>
+                <button id="login" class="btn btn-outline-primary" type="button">Login</button>
+            </div>
         </div>
     </div>
 </nav>
-<hr id="header_line">
