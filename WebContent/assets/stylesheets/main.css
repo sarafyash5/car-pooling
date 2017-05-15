@@ -1,36 +1,74 @@
-/* line 5, ../sass/main.scss */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  background: #040D0c;
-  line-height: 1em;
-  color: #57eccb; }
-
-/* line 13, ../sass/main.scss */
+@font-face {
+  font-family: "Bree_serif";
+  src: url("../fonts/Bree_Serif/BreeSerif-Regular.ttf"); }
+@font-face {
+  font-family: "Capriola";
+  src: url("../fonts/Capriola/Capriola-Regular.ttf"); }
+@font-face {
+  font-family: "Pacifico";
+  src: url("../fonts/Pacifico/Pacifico-Regular.ttf"); }
+/* line 10, ../sass/main.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 19, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
+body {
+  font-family: Bree_serif;
+  font-size: 1em;
+  background: #040D0c;
+  line-height: 1em;
+  color: #57eccb; }
+
+/* line 24, ../sass/main.scss */
+.login_prompt {
+  font-family: Bree_serif; }
+
+/* line 28, ../sass/main.scss */
+::-webkit-input-placeholder {
+  font-family: Bree_serif; }
+
+/* line 32, ../sass/main.scss */
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: Bree_serif; }
+
+/* line 35, ../sass/main.scss */
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: Bree_serif; }
+
+/* line 39, ../sass/main.scss */
+#header,
+#header .btn,
+#footer {
+  font-family: Capriola; }
+
+/* line 45, ../sass/main.scss */
+#header .btn {
+  margin-top: 0.5em;
+  margin-left: 0.5em; }
+
+/* line 50, ../sass/main.scss */
 #header {
   position: relative; }
 
-/* line 23, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
+#footer {
+  font-size: 0.9em; }
+
+/* line 58, ../sass/main.scss */
 .navbar {
   background-color: transparent;
   background: transparent;
   border-color: transparent; }
 
-/* line 30, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 #brand_logo {
-  position: absolute;
-  left: 50%;
-  margin-left: -50px !important;
-  /* 50% of your logo width */
-  display: block; }
+  font-family: Pacifico; }
 
-/* line 38, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 #arrow_up {
   font-size: 3em;
   position: absolute;
@@ -38,11 +76,11 @@ body {
   bottom: 15%;
   display: block; }
 
-/* line 46, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 #main_body {
   padding-bottom: 4.5em; }
 
-/* line 51, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 #header_nav {
   position: relative;
   line-height: 2em; }

@@ -6,10 +6,10 @@
 <title>Car pooling</title>
 
 <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
-<link rel="stylesheet" href="assets/stylesheets/sweetalert2.min.css">
 <link rel="stylesheet" href="assets/stylesheets/animate.min.css">
 <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/stylesheets/main.css">
+<link rel="stylesheet" href="assets/stylesheets/sweetalert2.min.css">
 
 <div class="container-fluid">
     <div id="header">

@@ -2,22 +2,57 @@
 @import "partials/variables";
 @import "partials/mixins";
 @import "compass/css3";
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    background: $default-dark;
-    line-height: 1em;
-    color: $default-light;
-}
-
+@include font-face(Bree_serif, url("../fonts/Bree_Serif/BreeSerif-Regular.ttf"));
+@include font-face(Capriola,
+url("../fonts/Capriola/Capriola-Regular.ttf"));
+@include font-face(Pacifico,
+url("../fonts/Pacifico/Pacifico-Regular.ttf"));
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
+body {
+    font-family: Bree_serif;
+    font-size: 1em;
+    background: $default-dark;
+    line-height: 1em;
+    color: $default-light;
+}
+
+.login_prompt {
+    font-family: Bree_serif;
+}
+
+::-webkit-input-placeholder {
+    font-family: Bree_serif;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    font-family: Bree_serif;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+    font-family: Bree_serif;
+}
+
+#header,
+#header .btn,
+#footer {
+    font-family: Capriola;
+}
+
+#header .btn {
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
 #header {
     position: relative;
+}
+
+#footer {
+    font-size: 0.9em;
 }
 
 .navbar {
@@ -28,11 +63,12 @@ body {
 }
 
 #brand_logo {
-    position: absolute;
-    left: 50%;
-    margin-left: -50px !important;
-    /* 50% of your logo width */
-    display: block;
+    font-family: Pacifico;
+    // position: absolute;
+    // left: 50%;
+    // margin-left: -50px !important;
+    // /* 50% of your logo width */
+    // display: block;
 }
 
 #arrow_up {
@@ -52,115 +88,3 @@ body {
     position: relative;
     line-height: 2em;
 }
-
-// $bgDefault: #fffeff;
-// $bgHighlight: #040d0c;
-// $colDefault: #57eccb;
-// $colHighlight: #dbe7e5;
-// $dropDown: true;
-// .navbar-light {
-//     background-color: $bgDefault;
-//     border-color: $bgHighlight;
-//     .navbar-brand {
-//         color: $colDefault;
-//         &:hover,
-//         &:focus {
-//             color: $colHighlight;
-//         }
-//     }
-//     .navbar-text {
-//         color: $colDefault;
-//     }
-//     .navbar-nav {
-//         .nav-item {
-//             color: $colDefault;
-//             &:hover,
-//             &:focus {
-//                 color: $colHighlight;
-//             }
-//             @if $dropDown {
-//                 > .dropdown-menu {
-//                     background-color: $bgDefault;
-//                     > li {
-//                         > a {
-//                             color: $colDefault;
-//                             &:hover,
-//                             &:focus {
-//                                 color: $colHighlight;
-//                                 background-color: $bgHighlight;
-//                             }
-//                         }
-//                         > .divider {
-//                             background-color: $bgHighlight;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//         @if $dropDown {
-//             .open .dropdown-menu > .active {
-//                 > a,
-//                 > a:hover,
-//                 > a:focus {
-//                     color: $colHighlight;
-//                     background-color: $bgHighlight;
-//                 }
-//             }
-//         }
-//         > .active {
-//             > a,
-//             > a:hover,
-//             > a:focus {
-//                 color: $colHighlight;
-//                 background-color: $bgHighlight;
-//             }
-//         }
-//         > .open {
-//             > a,
-//             > a:hover,
-//             > a:focus {
-//                 color: $colHighlight;
-//                 background-color: $bgHighlight;
-//             }
-//         }
-//     }
-//     .navbar-toggle {
-//         border-color: $bgHighlight;
-//         &:hover,
-//         &:focus {
-//             background-color: $bgHighlight;
-//         }
-//         .icon-bar {
-//             background-color: $colDefault;
-//         }
-//     }
-//     .navbar-toggler,
-//     .navbar-form {
-//         border-color: $colDefault;
-//     }
-//     .nav-link {
-//         color: $colDefault;
-//         &:hover {
-//             color: $colHighlight;
-//         }
-//     }
-// }
-// @media (max-width: 767px) {
-//     .navbar-default .navbar-nav .open .dropdown-menu {
-//         > li > a {
-//             color: $colDefault;
-//             &:hover,
-//             &:focus {
-//                 color: $colHighlight;
-//             }
-//         }
-//         > .active {
-//             > a,
-//             > a:hover,
-//             > a:focus {
-//                 color: $colHighlight;
-//                 background-color: $bgHighlight;
-//             }
-//         }
-//     }
-// }
