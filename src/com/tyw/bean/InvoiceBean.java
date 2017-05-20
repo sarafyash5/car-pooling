@@ -2,7 +2,7 @@ package com.tyw.bean;
 
 import java.io.Serializable;
 
-
+@SuppressWarnings("serial")
 public class InvoiceBean implements Serializable {
 
 	private int invoiceNo;

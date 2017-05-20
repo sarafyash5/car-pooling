@@ -3,26 +3,12 @@ package com.tyw.daoimpl;
 import com.tyw.bean.BookingBean;
 import com.tyw.bean.CarBean;
 import com.tyw.bean.CarPoolingBean;
-import com.tyw.bean.EmployeeBean;
 import com.tyw.bean.InvoiceBean;
 import com.tyw.dao.EmployeeDAO;
 import com.tyw.enums.BookingStatus;
 import com.tyw.enums.Error;
 
-
 public class EmployeeDAOImpl implements EmployeeDAO {
-
-	@Override
-	public Error login(EmployeeBean employee) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Error logout(EmployeeBean employee) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Error addCar(CarBean car) {
@@ -43,7 +29,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public Error modifyOrder(BookingBean order, String pickup, String dropoff) {
+	public Error modifyOrder(BookingBean order) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.tyw.enums.BookingStatus;
 
-
+@SuppressWarnings("serial")
 public class BookingBean implements Serializable {
 
 	private String orderNo;

@@ -1,72 +1,79 @@
 -- Delete all objects in current schema
--- 
--- BEGIN
---    FOR cur_rec IN (SELECT object_name, object_type
---                      FROM user_objects
---                     WHERE object_type IN
---                              ('TABLE',
---                               'VIEW',
---                               'PACKAGE',
---                               'PROCEDURE',
---                               'FUNCTION',
---                               'SEQUENCE'
---                              ))
---    LOOP
---       BEGIN
---          IF cur_rec.object_type = 'TABLE'
---          THEN
---             EXECUTE IMMEDIATE    'DROP '
---                               || cur_rec.object_type
---                               || ' "'
---                               || cur_rec.object_name
---                               || '" CASCADE CONSTRAINTS';
---          ELSE
---             EXECUTE IMMEDIATE    'DROP '
---                               || cur_rec.object_type
---                               || ' "'
---                               || cur_rec.object_name
---                               || '"';
---          END IF;
---       EXCEPTION
---          WHEN OTHERS
---          THEN
---             DBMS_OUTPUT.put_line (   'FAILED: DROP '
---                                   || cur_rec.object_type
---                                   || ' "'
---                                   || cur_rec.object_name
---                                   || '"'
---                                  );
---       END;
---    END LOOP;
--- END;
--- /
+
+BEGIN
+   FOR cur_rec IN (SELECT object_name, object_type
+                     FROM user_objects
+                    WHERE object_type IN
+                             ('TABLE',
+                              'VIEW',
+                              'PACKAGE',
+                              'PROCEDURE',
+                              'FUNCTION',
+                              'SEQUENCE'
+                             ))
+   LOOP
+      BEGIN
+         IF cur_rec.object_type = 'TABLE'
+         THEN
+            EXECUTE IMMEDIATE    'DROP '
+                              || cur_rec.object_type
+                              || ' "'
+                              || cur_rec.object_name
+                              || '" CASCADE CONSTRAINTS';
+         ELSE
+            EXECUTE IMMEDIATE    'DROP '
+                              || cur_rec.object_type
+                              || ' "'
+                              || cur_rec.object_name
+                              || '"';
+         END IF;
+      EXCEPTION
+         WHEN OTHERS
+         THEN
+            DBMS_OUTPUT.put_line (   'FAILED: DROP '
+                                  || cur_rec.object_type
+                                  || ' "'
+                                  || cur_rec.object_name
+                                  || '"'
+                                 );
+      END;
+   END LOOP;
+END;
+/
+commit;
 
 create table locations (
-	location VARCHAR2(30) PRIMARY KEY
+	loc VARCHAR2(30) PRIMARY KEY
+);
+
+create table user_details (
+	user_id VARCHAR2(10) PRIMARY KEY,
+	login_id VARCHAR2(50) NOT NULL UNIQUE CHECK (LENGTH(login_id) >= 8),
+	fname VARCHAR2(50) NOT NULL,
+	lname VARCHAR2(50) NOT NULL,
+	passwd VARCHAR2(50) NOT NULL CHECK (LENGTH(passwd) >= 8)
 );
 
 create table customer (
-	customer_id VARCHAR2(20) PRIMARY KEY,
-	fname VARCHAR2(50) NOT NULL,
-	lname VARCHAR2(50) NOT NULL,
-	phone NUMBER(10) NOT NULL,
-	email VARCHAR2(255) NOT NULL,
+	customer_id VARCHAR2(10) PRIMARY KEY,
+	user_id VARCHAR2(10),
+	phone NUMBER(10) NOT NULL UNIQUE,
+	email VARCHAR2(255) NOT NULL UNIQUE,
 	balance NUMBER(12,4) DEFAULT 0,
-	license_no VARCHAR2(10) UNIQUE,
-	postal_address VARCHAR2(255),
-	location VARCHAR2(30),
-	login_id VARCHAR2(50) NOT NULL UNIQUE,
-	passwd VARCHAR2(50) NOT NULL,
-	CONSTRAINT fk_loc_customer FOREIGN KEY (location) REFERENCES locations(location)
+	license CHAR(10) UNIQUE,
+	address VARCHAR2(255),
+	loc VARCHAR2(30),
+	CONSTRAINT fk_uid_customer FOREIGN KEY (user_id) REFERENCES user_details(user_id),
+	CONSTRAINT fk_loc_customer FOREIGN KEY (loc) REFERENCES locations(loc)
 );
 
 create table employee (
-	employee_id VARCHAR2(20) PRIMARY KEY,
+	employee_id VARCHAR2(10) PRIMARY KEY,
+	user_id VARCHAR2(10),
 	qualification CHAR(3) NOT NULL CHECK (qualification in ('BM','FM','TSE','SE')),
-	location VARCHAR2(255),
-	login_id VARCHAR2(50) NOT NULL UNIQUE,
-	passwd VARCHAR2(50) NOT NULL,
-	CONSTRAINT fk_loc_employee FOREIGN KEY (location) REFERENCES locations(location)
+	loc VARCHAR2(255) NOT NULL,
+	CONSTRAINT fk_uid_employee FOREIGN KEY (user_id) REFERENCES user_details(user_id),
+	CONSTRAINT fk_loc_employee FOREIGN KEY (loc) REFERENCES locations(loc)
 );
 
 create table car (
@@ -81,18 +88,18 @@ create table car (
 );
 
 create table carrental (
-	rental_id VARCHAR2(20) PRIMARY KEY,
+	rental_id VARCHAR2(10) PRIMARY KEY,
 	car_number VARCHAR2(10),
 	rate_per_km NUMBER(5,2) NOT NULL,
 	km_travelled NUMBER(7,2) DEFAULT 0 NOT NULL,
 	basic_rent NUMBER(6,2) NOT NULL,
-	location VARCHAR2(30),
+	loc VARCHAR2(30),
 	CONSTRAINT fk_carnum_carrental FOREIGN KEY (car_number) REFERENCES car(car_number),
-	CONSTRAINT fk_loc_carrental FOREIGN KEY (location) REFERENCES locations(location)
+	CONSTRAINT fk_loc_carrental FOREIGN KEY (loc) REFERENCES locations(loc)
 );
 
 create table carpooling (
-	pooling_id VARCHAR2(20) PRIMARY KEY,
+	pooling_id VARCHAR2(10) PRIMARY KEY,
 	car_number VARCHAR2(10),
 	driver_salary NUMBER(8,2) NOT NULL,
 	fare NUMBER(8,2) DEFAULT 0 NOT NULL,
@@ -103,11 +110,11 @@ create table carpooling (
 );
 
 create table booking (
-	order_no VARCHAR2(20) PRIMARY KEY,
-	customer_id VARCHAR2(20),
+	order_no VARCHAR2(10) PRIMARY KEY,
+	customer_id VARCHAR2(10),
 	car_number VARCHAR2(10),
-	rental_id VARCHAR2(20),
-	pooling_id VARCHAR2(20),
+	rental_id VARCHAR2(10),
+	pooling_id VARCHAR2(10),
 	booking_date DATE NOT NULL,
 	end_date DATE NOT NULL,
 	fare NUMBER(8,2) NOT NULL,
@@ -126,7 +133,7 @@ create table booking (
 
 create table invoice (
 	invoice_no NUMBER(8) PRIMARY KEY,
-	order_no VARCHAR2(20),
+	order_no VARCHAR2(10),
 	customer_name VARCHAR2(255) NOT NULL,
 	car_name VARCHAR2(255) NOT NULL,
 	car_number VARCHAR2(10) NOT NULL,
@@ -136,4 +143,14 @@ create table invoice (
 	tax_rate NUMBER(5,2) NOT NULL,
 	booking_date DATE NOT NULL,
 	CONSTRAINT fk_ordernum_invoice FOREIGN KEY (order_no) REFERENCES booking(order_no)
-)
+);
+
+create or replace function getUniqueVal
+return VARCHAR2
+as
+	begin
+	return dbms_random.string('X',10);
+END getUniqueVal;
+/
+
+commit;

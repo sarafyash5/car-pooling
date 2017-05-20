@@ -2,21 +2,17 @@ package com.tyw.bean;
 
 import java.io.Serializable;
 
-
-public class CustomerBean implements Serializable {
+@SuppressWarnings("serial")
+public class CustomerBean extends UserBean implements Serializable {
 
 	private String id;
-	private String fname;
-	private String lname;
-	private int phone;
+	private long phone;
 	private String email;
 	private double balance;
 	private String licenseNo;
 	private String orderNo;
 	private String postalAddress;
 	private String location;
-	private String uid;
-	private String passwd;
 
 	public String getId() {
 		return id;
@@ -26,27 +22,11 @@ public class CustomerBean implements Serializable {
 		this.id = id;
 	}
 
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-
-	public int getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 
@@ -97,22 +77,5 @@ public class CustomerBean implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
-	public String getUid() {
-		return uid;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-
-	public String getPasswd() {
-		return passwd;
-	}
-
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
-
 
 }

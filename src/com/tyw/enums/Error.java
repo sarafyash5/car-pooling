@@ -1,12 +1,10 @@
 package com.tyw.enums;
 
 public enum Error {
-	SUCCESS(""),
-	DUPLICATE("This user already exists"),
-	INCORRECTPASSWORD("The password is incorrect"),
-	USERNOTEXIST("The user ID does not exist"),
-	DATABASE("A database error has occurred"),
-	WALLET("Your wallet does not have sufficient funds");
+	SUCCESS(""), DUPLICATE("This user already exists"), INCORRECTPASSWORD("The password is incorrect"), USERNOTEXIST(
+			"The user ID does not exist"), DATABASE(
+					"A database error has occurred"), WALLET("Your wallet does not have sufficient funds"),
+	WRONGROLE("The role and credentials do not match");
 
 	private final String description;
 

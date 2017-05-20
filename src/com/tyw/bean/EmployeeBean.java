@@ -4,14 +4,12 @@ import java.io.Serializable;
 
 import com.tyw.enums.Qualification;
 
-
-public class EmployeeBean implements Serializable {
+@SuppressWarnings("serial")
+public class EmployeeBean extends UserBean implements Serializable {
 
 	private String id;
 	private Qualification qualification;
 	private String location;
-	private String uid;
-	private String passwd;
 
 	public String getId() {
 		return id;
@@ -35,22 +33,6 @@ public class EmployeeBean implements Serializable {
 
 	public void setLocation(String location) {
 		this.location = location;
-	}
-
-	public String getUid() {
-		return uid;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-
-	public String getPasswd() {
-		return passwd;
-	}
-
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
 	}
 
 }

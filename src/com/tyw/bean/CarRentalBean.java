@@ -2,7 +2,7 @@ package com.tyw.bean;
 
 import java.io.Serializable;
 
-
+@SuppressWarnings("serial")
 public class CarRentalBean implements Serializable {
 
 	private String rentalId;

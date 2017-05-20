@@ -1,3 +1,12 @@
+-- TODO: Enter dummy data for employee, booking, car, carrental, carpooling
+
+insert all
+	into user_details values ('ABC123','admin1234','admin','admin','admin@123')
+	into customer values ('DEF123','ABC123',1234567890,'admin@mail.com',0,UPPER(getUniqueVal()),NULL,NULL
+)
+ select 1 from dual;
+
+
 INSERT ALL
 INTO locations values ('Mumbai')
 INTO locations values ('Delhi')
@@ -101,8 +110,4 @@ INTO locations values ('Udaipur')
 INTO locations values ('Maheshtala')
 SELECT 1 FROM DUAL;
 
-insert all into customer (customer_id,fname,lname,phone,email,login_id,passwd) values (
-'ABC123','admin','admin',1234567890,'admin@123.com','admin1234','admin@123'
-) select 1 from dual;
-
--- TODO: Enter dummy data for employee, booking, car, carrental, carpooling
+commit;

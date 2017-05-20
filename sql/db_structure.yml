@@ -1,24 +1,26 @@
 tables:
   locations:
     location [PK]
-  customer:
-    - customer_id [PK]
+  user_details:
+    - user_id [PK]
     - fname
     - lname
+    - login_id
+    - password
+  customer:
+    - customer_id [PK]
+    - user_id [FK]
     - phone
     - email
     - balance
     - license_no
     - postal_address
     - location
-    - login_id
-    - password
   employee:
     - employee_id [PK]
+    - user_id [FK]
     - qualification [BM,TSE,FM,SM]
     - location
-    - login_id
-    - password
   booking:
     - order_no [PK]
     - customer_id [FK]

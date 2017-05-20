@@ -1,65 +1,60 @@
 package com.tyw.controller;
 
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import com.tyw.bean.CustomerBean;
 import com.tyw.dao.CustomerDAO;
 import com.tyw.daoimpl.CustomerDAOImpl;
 import com.tyw.enums.Error;
 
-
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String REGEXPASSWD = "^[\\p{Graph}]{8,}$";
-	private static final String REGEXUID = "^[\\p{Alnum}]{8,}$";
 
-    public RegisterServlet() {
-        super();
-    }
+	public RegisterServlet() {
+		super();
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String uid, passwd;
 		String[] toReturn = new String[2];
-		uid = request.getParameter("uid");
-		passwd = request.getParameter("passwd");
-		String valid = validate(uid, passwd);
-		if (valid == "") {
-			CustomerDAO cust = new CustomerDAOImpl();
-//			String result = cust.login1(uid, passwd);
-			Error result = cust.login(uid, passwd);
-			if (result != Error.SUCCESS) {
-				toReturn[0] = "ERROR";
-				toReturn[1] = result.getDescription();
-			} else {
-				toReturn[0] = "SUCCESS";
-			}
-//				toReturn[1] = result;
-		} else {
+		CustomerBean bean = new CustomerBean();
+		CustomerDAO cust = new CustomerDAOImpl();
+		bean.setFname(request.getParameter("fname"));
+		bean.setLname(request.getParameter("lname"));
+		bean.setPhone(Long.parseLong((request.getParameter("phone"))));
+		bean.setEmail(request.getParameter("email"));
+		bean.setLicenseNo(request.getParameter("license"));
+		bean.setPostalAddress(request.getParameter("address"));
+		bean.setLoginId(request.getParameter("login_id"));
+		bean.setPasswd(request.getParameter("passwd"));
+		Error result = cust.register(bean);
+		if (result != Error.SUCCESS) {
 			toReturn[0] = "ERROR";
-			toReturn[1] = valid;
+			toReturn[1] = result.getDescription();
+		} else {
+			toReturn[0] = "SUCCESS";
+			HttpSession session = request.getSession(true);
+			session.setAttribute("currentUser", bean);
+			session.setAttribute("role", "customer");
+			Cookie cookie = new Cookie("uname", bean.getFname());
+			cookie.setPath("/");
+			cookie.setMaxAge(-1);
+			response.addCookie(cookie);
 		}
+		// toReturn[1] = result;
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(new Gson().toJson(toReturn));
-	}
-
-	private String validate(String uid, String passwd) {
-		Pattern pattern = Pattern.compile(REGEXUID);
-		if (!pattern.matcher(uid).matches())
-			return "Invalid user name";
-		pattern = Pattern.compile(REGEXPASSWD);
-		if (!pattern.matcher(passwd).matches())
-			return "Invalid password";
-		return "";
 	}
 
 }

@@ -84,3 +84,12 @@ body {
 #header_nav {
   position: relative;
   line-height: 2em; }
+
+/* line 92, ../sass/main.scss */
+input[type='number'] {
+  -moz-appearance: textfield; }
+
+/* line 96, ../sass/main.scss */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; }

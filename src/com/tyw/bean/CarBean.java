@@ -2,11 +2,11 @@ package com.tyw.bean;
 
 import java.io.Serializable;
 
+import com.tyw.enums.Availability;
 import com.tyw.enums.CarType;
 import com.tyw.enums.OrderType;
-import com.tyw.enums.Availability;
 
-
+@SuppressWarnings("serial")
 public class CarBean implements Serializable {
 
 	private String carNumber;
