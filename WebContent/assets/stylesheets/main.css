@@ -15,60 +15,59 @@
 
 /* line 16, ../sass/main.scss */
 body {
-  font-family: Bree_serif;
   font-size: 1em;
-  background: #040D0c;
+  background: #FFFFFF;
   line-height: 1em;
-  color: #57eccb; }
+  color: #000000; }
 
-/* line 24, ../sass/main.scss */
+/* line 23, ../sass/main.scss */
 .login_prompt {
   font-family: Bree_serif; }
 
-/* line 28, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 ::-webkit-input-placeholder {
   font-family: Bree_serif; }
 
-/* line 32, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 :-moz-placeholder {
   /* Firefox 18- */
   font-family: Bree_serif; }
 
-/* line 35, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: Bree_serif; }
 
-/* line 39, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 #header,
 #header .btn,
 #footer {
   font-family: Capriola; }
 
-/* line 45, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 #header .btn {
   margin-top: 0.5em;
   margin-left: 0.5em; }
 
-/* line 50, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 #header {
   position: relative; }
 
-/* line 54, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 #footer {
   font-size: 0.9em; }
 
-/* line 58, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .navbar {
   background-color: transparent;
   background: transparent;
   border-color: transparent; }
 
-/* line 65, ../sass/main.scss */
+/* line 64, ../sass/main.scss */
 #brand_logo {
   font-family: Pacifico; }
 
-/* line 74, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 #arrow_up {
   font-size: 3em;
   position: absolute;
@@ -76,20 +75,20 @@ body {
   bottom: 15%;
   display: block; }
 
-/* line 82, ../sass/main.scss */
+/* line 81, ../sass/main.scss */
 #main_body {
   padding-bottom: 4.5em; }
 
-/* line 87, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 #header_nav {
   position: relative;
   line-height: 2em; }
 
-/* line 92, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 input[type='number'] {
   -moz-appearance: textfield; }
 
-/* line 96, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none; }
